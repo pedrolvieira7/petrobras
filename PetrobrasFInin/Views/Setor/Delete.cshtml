@@ -1,0 +1,22 @@
+@model PetrobrasFInin.Models.Setor
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h1>Excluir - Setores</h1>
+<h4>Tem certeza de que deseja excluir este registro?</h4>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdSetor</dd>
+    <dt class="col-sm-3">Unidade</dt>
+    <dd class="col-sm-9">@Model.Unidade</dd>
+    <dt class="col-sm-3">Área</dt>
+    <dd class="col-sm-9">@Model.Area</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.IdSetor" method="post">
+    <input type="hidden" asp-for="IdSetor" />
+    <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

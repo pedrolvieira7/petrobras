@@ -1,0 +1,28 @@
+@model PetrobrasFInin.Models.Anexo
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h1>Excluir - Anexos</h1>
+<h4>Tem certeza de que deseja excluir este registro?</h4>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdAnexo</dd>
+    <dt class="col-sm-3">Nome do arquivo</dt>
+    <dd class="col-sm-9">@Model.NomeArquivo</dd>
+    <dt class="col-sm-3">Caminho do arquivo</dt>
+    <dd class="col-sm-9">@Model.CaminhoArquivo</dd>
+    <dt class="col-sm-3">Falha (opcional)</dt>
+    <dd class="col-sm-9">@Model.IdFalha</dd>
+    <dt class="col-sm-3">Análise (opcional)</dt>
+    <dd class="col-sm-9">@Model.IdAnalise</dd>
+    <dt class="col-sm-3">Ação corretiva (opcional)</dt>
+    <dd class="col-sm-9">@Model.IdAcao</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.IdAnexo" method="post">
+    <input type="hidden" asp-for="IdAnexo" />
+    <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

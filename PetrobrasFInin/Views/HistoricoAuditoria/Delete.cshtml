@@ -1,0 +1,26 @@
+@model PetrobrasFInin.Models.HistoricoAuditorium
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h1>Excluir - Histórico de auditoria</h1>
+<h4>Tem certeza de que deseja excluir este registro?</h4>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdHistorico</dd>
+    <dt class="col-sm-3">Tipo de evento</dt>
+    <dd class="col-sm-9">@Model.TipoEvento</dd>
+    <dt class="col-sm-3">Registro afetado</dt>
+    <dd class="col-sm-9">@Model.RegistroAfetado</dd>
+    <dt class="col-sm-3">Data e hora</dt>
+    <dd class="col-sm-9">@Model.DataHora</dd>
+    <dt class="col-sm-3">Usuário</dt>
+    <dd class="col-sm-9">@Model.IdUsuario</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.IdHistorico" method="post">
+    <input type="hidden" asp-for="IdHistorico" />
+    <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

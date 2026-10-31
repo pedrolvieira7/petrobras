@@ -1,0 +1,69 @@
+@using PetrobrasFInin.Models
+@{
+    Layout = null;
+    ViewData["Title"] = "Solicitar cadastro";
+    var perfis = ViewBag.Perfis as List<Perfil> ?? new List<Perfil>();
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solicitar cadastro · SIAF</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="auth-body">
+    <main class="auth-shell">
+        <section class="auth-brand-panel">
+            <a class="auth-logo" href="/">SIAF</a>
+            <div class="auth-message">
+                <span class="auth-kicker">ACESSO CONTROLADO</span>
+                <h1>Colaboração com responsabilidade.</h1>
+                <p>O acesso às informações e às funções do sistema deve seguir o perfil definido pela gestão.</p>
+            </div>
+            <div class="auth-bottom">Sistema de Análise de Falhas <span>Ambiente de gestão operacional</span></div>
+        </section>
+        <section class="auth-form-panel">
+            <div class="auth-form-wrap">
+                <div class="auth-kicker">NOVO USUÁRIO</div>
+                <h2>Solicitar cadastro</h2>
+                <p class="auth-subtitle">Preencha os dados para solicitar acesso ao SIAF.</p>
+                @if (ViewBag.Erro != null)
+                {
+                    <div role="alert" style="padding:10px;margin-bottom:12px;background:#fff0f0;color:#a12626;border-radius:7px;font-size:12px;">@ViewBag.Erro</div>
+                }
+                <form method="post" action="/Acesso/CriarConta">
+                    @Html.AntiForgeryToken()
+                    <label for="nome">Nome completo</label>
+                    <input id="nome" name="nome" placeholder="Seu nome completo" required maxlength="100" />
+
+                    <label for="email">E-mail corporativo</label>
+                    <input id="email" name="email" type="email" placeholder="nome@empresa.com" required maxlength="80" />
+
+                    <label for="cpf">CPF</label>
+                    <input id="cpf" name="cpf" placeholder="000.000.000-00" required maxlength="14" />
+
+                    <label for="perfil">Perfil do usuário</label>
+                    <select id="perfil" name="perfil" required>
+                        <option value="">-- Selecione o perfil --</option>
+                        @foreach (var item in perfis)
+                        {
+                            <option value="@item.IdPerfil">@item.Nome</option>
+                        }
+                    </select>
+                    @if (perfis.Count == 0)
+                    {
+                        <p style="font-size:11px;color:#a12626;margin-top:6px;">Nenhum perfil disponível. Cadastre os perfis no banco antes de criar um usuário.</p>
+                    }
+
+                    <label for="senha">Criar senha</label>
+                    <input id="senha" name="senha" type="password" minlength="8" maxlength="100" placeholder="Mínimo de 8 caracteres" required />
+
+                    <button type="submit" class="auth-submit" @(perfis.Count == 0 ? "disabled" : "")>Criar usuário <span>→</span></button>
+                </form>
+                <div class="auth-create">Já possui acesso? <a href="/Acesso/Login">Voltar para login</a></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

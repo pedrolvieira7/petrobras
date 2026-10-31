@@ -1,0 +1,22 @@
+@model PetrobrasFInin.Models.HistoricoAuditorium
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes - Histórico de auditoria</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdHistorico</dd>
+    <dt class="col-sm-3">Tipo de evento</dt>
+    <dd class="col-sm-9">@Model.TipoEvento</dd>
+    <dt class="col-sm-3">Registro afetado</dt>
+    <dd class="col-sm-9">@Model.RegistroAfetado</dd>
+    <dt class="col-sm-3">Data e hora</dt>
+    <dd class="col-sm-9">@Model.DataHora</dd>
+    <dt class="col-sm-3">Usuário</dt>
+    <dd class="col-sm-9">@Model.IdUsuario</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.IdHistorico" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

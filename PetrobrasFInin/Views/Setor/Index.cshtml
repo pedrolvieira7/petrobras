@@ -1,0 +1,36 @@
+@model IEnumerable<PetrobrasFInin.Models.Setor>
+@{
+    ViewData["Title"] = "Setores";
+}
+
+<h1>Setores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Novo cadastro</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+                <th>@Html.DisplayNameFor(model => model.First().IdSetor)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Unidade)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Area)</th>
+                <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+                <td>@item.IdSetor</td>
+                <td>@item.Unidade</td>
+                <td>@item.Area</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.IdSetor">Detalhes</a> |
+                    <a asp-action="Edit" asp-route-id="@item.IdSetor">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdSetor">Excluir</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

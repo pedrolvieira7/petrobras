@@ -1,0 +1,39 @@
+@model PetrobrasFInin.Models.CausaRaiz
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar - Causas raiz</h1>
+
+<form asp-action="Edit" asp-route-id="@Model.IdCausa" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="IdCausa" />
+    <div class="mb-3">
+        <label asp-for="CausaPrincipal" class="form-label">Causa principal</label>
+        <input asp-for="CausaPrincipal" type="text" class="form-control" />
+        <span asp-validation-for="CausaPrincipal" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Categoria" class="form-label">Categoria</label>
+        <input asp-for="Categoria" type="text" class="form-control" />
+        <span asp-validation-for="Categoria" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="TipoCausa" class="form-label">Tipo de causa</label>
+        <input asp-for="TipoCausa" type="text" class="form-control" />
+        <span asp-validation-for="TipoCausa" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdAnalise" class="form-label">Análise</label>
+        <select asp-for="IdAnalise" class="form-select" asp-items="ViewBag.IdAnalise">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdAnalise" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar alterações</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

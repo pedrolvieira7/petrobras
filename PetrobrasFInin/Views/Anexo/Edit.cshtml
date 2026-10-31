@@ -1,0 +1,48 @@
+@model PetrobrasFInin.Models.Anexo
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar - Anexos</h1>
+
+<form asp-action="Edit" asp-route-id="@Model.IdAnexo" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="IdAnexo" />
+    <div class="mb-3">
+        <label asp-for="NomeArquivo" class="form-label">Nome do arquivo</label>
+        <input asp-for="NomeArquivo" type="text" class="form-control" />
+        <span asp-validation-for="NomeArquivo" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CaminhoArquivo" class="form-label">Caminho do arquivo</label>
+        <input asp-for="CaminhoArquivo" type="text" class="form-control" />
+        <span asp-validation-for="CaminhoArquivo" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdFalha" class="form-label">Falha (opcional)</label>
+        <select asp-for="IdFalha" class="form-select" asp-items="ViewBag.IdFalha">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdFalha" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdAnalise" class="form-label">Análise (opcional)</label>
+        <select asp-for="IdAnalise" class="form-select" asp-items="ViewBag.IdAnalise">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdAnalise" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdAcao" class="form-label">Ação corretiva (opcional)</label>
+        <select asp-for="IdAcao" class="form-select" asp-items="ViewBag.IdAcao">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdAcao" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar alterações</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

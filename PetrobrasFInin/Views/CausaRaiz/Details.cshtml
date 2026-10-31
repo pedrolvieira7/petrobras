@@ -1,0 +1,22 @@
+@model PetrobrasFInin.Models.CausaRaiz
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes - Causas raiz</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdCausa</dd>
+    <dt class="col-sm-3">Causa principal</dt>
+    <dd class="col-sm-9">@Model.CausaPrincipal</dd>
+    <dt class="col-sm-3">Categoria</dt>
+    <dd class="col-sm-9">@Model.Categoria</dd>
+    <dt class="col-sm-3">Tipo de causa</dt>
+    <dd class="col-sm-9">@Model.TipoCausa</dd>
+    <dt class="col-sm-3">Análise</dt>
+    <dd class="col-sm-9">@Model.IdAnalise</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.IdCausa" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

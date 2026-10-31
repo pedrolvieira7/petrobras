@@ -1,0 +1,6 @@
+USE dbPetrobras_SIAF;
+GO
+
+ALTER TABLE dbo.usuario
+ALTER COLUMN senha VARCHAR(255) NOT NULL;
+GO

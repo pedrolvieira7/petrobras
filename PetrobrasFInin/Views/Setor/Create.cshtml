@@ -1,0 +1,26 @@
+@model PetrobrasFInin.Models.Setor
+@{
+    ViewData["Title"] = "Novo cadastro";
+}
+
+<h1>Novo cadastro - Setores</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="Unidade" class="form-label">Unidade</label>
+        <input asp-for="Unidade" type="text" class="form-control" />
+        <span asp-validation-for="Unidade" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Area" class="form-label">Área</label>
+        <input asp-for="Area" type="text" class="form-control" />
+        <span asp-validation-for="Area" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,25 @@
+CORREÇÃO DE CONEXÃO COM BANCO - PETROBRASFInin / SIAF
+
+O vídeo mostrou que a aplicação abre o painel, mas o SQL Server retorna:
+Cannot open database "dbPetrobras" requested by the login.
+
+Correções feitas:
+- Alterado o banco padrão para dbPetrobras_SIAF para não depender do banco dbPetrobras antigo/inacessível.
+- O projeto tenta criar automaticamente o banco e as tabelas com Entity Framework Core (EnsureCreated) na inicialização.
+- Adicionada política de novas tentativas de conexão para falhas transitórias.
+- O erro de banco é registrado no log em vez de interromper a inicialização do site.
+
+COMO TESTAR
+1. Extraia o ZIP em uma pasta nova.
+2. Abra PetrobrasFInin.sln no Visual Studio 2022.
+3. Confirme que o SQL Server LocalDB está instalado. No Visual Studio Installer, confira os componentes de dados/SQL Server LocalDB.
+4. Execute o projeto pelo perfil http.
+
+CONEXÃO PADRÃO
+Server=(localdb)\MSSQLLocalDB;Database=dbPetrobras_SIAF;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;Connect Timeout=5;
+
+OBSERVAÇÕES
+- O banco novo é criado localmente e começa sem dados. Não apaga nem altera o banco antigo dbPetrobras.
+- EnsureCreated cria o esquema quando o banco ainda não existe; não atualiza esquemas de um banco preexistente.
+- Se o LocalDB não estiver instalado ou iniciado, será necessário instalá-lo/iniciá-lo no computador.
+- A compilação e a conexão não puderam ser verificadas neste ambiente; teste no Visual Studio e envie a mensagem completa se houver outro erro.

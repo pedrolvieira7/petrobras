@@ -1,0 +1,18 @@
+@model PetrobrasFInin.Models.Setor
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes - Setores</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdSetor</dd>
+    <dt class="col-sm-3">Unidade</dt>
+    <dd class="col-sm-9">@Model.Unidade</dd>
+    <dt class="col-sm-3">Área</dt>
+    <dd class="col-sm-9">@Model.Area</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.IdSetor" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

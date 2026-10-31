@@ -1,0 +1,40 @@
+@model IEnumerable<PetrobrasFInin.Models.HistoricoAuditorium>
+@{
+    ViewData["Title"] = "Histórico de auditoria";
+}
+
+<h1>Histórico de auditoria</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Novo cadastro</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+                <th>@Html.DisplayNameFor(model => model.First().IdHistorico)</th>
+                <th>@Html.DisplayNameFor(model => model.First().TipoEvento)</th>
+                <th>@Html.DisplayNameFor(model => model.First().RegistroAfetado)</th>
+                <th>@Html.DisplayNameFor(model => model.First().DataHora)</th>
+                <th>@Html.DisplayNameFor(model => model.First().IdUsuario)</th>
+                <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+                <td>@item.IdHistorico</td>
+                <td>@item.TipoEvento</td>
+                <td>@item.RegistroAfetado</td>
+                <td>@item.DataHora</td>
+                <td>@item.IdUsuario</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.IdHistorico">Detalhes</a> |
+                    <a asp-action="Edit" asp-route-id="@item.IdHistorico">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdHistorico">Excluir</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

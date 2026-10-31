@@ -1,0 +1,26 @@
+@model PetrobrasFInin.Models.CausaRaiz
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h1>Excluir - Causas raiz</h1>
+<h4>Tem certeza de que deseja excluir este registro?</h4>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdCausa</dd>
+    <dt class="col-sm-3">Causa principal</dt>
+    <dd class="col-sm-9">@Model.CausaPrincipal</dd>
+    <dt class="col-sm-3">Categoria</dt>
+    <dd class="col-sm-9">@Model.Categoria</dd>
+    <dt class="col-sm-3">Tipo de causa</dt>
+    <dd class="col-sm-9">@Model.TipoCausa</dd>
+    <dt class="col-sm-3">Análise</dt>
+    <dd class="col-sm-9">@Model.IdAnalise</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.IdCausa" method="post">
+    <input type="hidden" asp-for="IdCausa" />
+    <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

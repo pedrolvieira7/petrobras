@@ -1,0 +1,28 @@
+@model PetrobrasFInin.Models.Falha
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes - Falhas</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdFalha</dd>
+    <dt class="col-sm-3">Código da falha</dt>
+    <dd class="col-sm-9">@Model.CodigoFalha</dd>
+    <dt class="col-sm-3">Título</dt>
+    <dd class="col-sm-9">@Model.TituloFalha</dd>
+    <dt class="col-sm-3">Data da ocorrência</dt>
+    <dd class="col-sm-9">@Model.DataOcorrencia</dd>
+    <dt class="col-sm-3">Criticidade</dt>
+    <dd class="col-sm-9">@Model.Criticidade</dd>
+    <dt class="col-sm-3">Situação</dt>
+    <dd class="col-sm-9">@Model.Situacao</dd>
+    <dt class="col-sm-3">Equipamento</dt>
+    <dd class="col-sm-9">@Model.IdEquipamento</dd>
+    <dt class="col-sm-3">Usuário responsável</dt>
+    <dd class="col-sm-9">@Model.IdUsuario</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.IdFalha" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

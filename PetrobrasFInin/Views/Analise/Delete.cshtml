@@ -1,0 +1,32 @@
+@model PetrobrasFInin.Models.Analise
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h1>Excluir - Análises</h1>
+<h4>Tem certeza de que deseja excluir este registro?</h4>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdAnalise</dd>
+    <dt class="col-sm-3">Código da análise</dt>
+    <dd class="col-sm-9">@Model.CodigoAnalise</dd>
+    <dt class="col-sm-3">Método de análise</dt>
+    <dd class="col-sm-9">@Model.MetodoAnalise</dd>
+    <dt class="col-sm-3">Disciplina</dt>
+    <dd class="col-sm-9">@Model.Disciplina</dd>
+    <dt class="col-sm-3">Decisão do gestor</dt>
+    <dd class="col-sm-9">@Model.DecisaoGestor</dd>
+    <dt class="col-sm-3">Falha</dt>
+    <dd class="col-sm-9">@Model.IdFalha</dd>
+    <dt class="col-sm-3">Analista</dt>
+    <dd class="col-sm-9">@Model.IdAnalista</dd>
+    <dt class="col-sm-3">Gestor</dt>
+    <dd class="col-sm-9">@Model.IdGestor</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.IdAnalise" method="post">
+    <input type="hidden" asp-for="IdAnalise" />
+    <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

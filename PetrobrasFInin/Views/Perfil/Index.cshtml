@@ -1,0 +1,36 @@
+@model IEnumerable<PetrobrasFInin.Models.Perfil>
+@{
+    ViewData["Title"] = "Perfis";
+}
+
+<h1>Perfis</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Novo cadastro</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+                <th>@Html.DisplayNameFor(model => model.First().IdPerfil)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Nome)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Descricao)</th>
+                <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+                <td>@item.IdPerfil</td>
+                <td>@item.Nome</td>
+                <td>@item.Descricao</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.IdPerfil">Detalhes</a> |
+                    <a asp-action="Edit" asp-route-id="@item.IdPerfil">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdPerfil">Excluir</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

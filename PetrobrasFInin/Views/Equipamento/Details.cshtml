@@ -1,0 +1,28 @@
+@model PetrobrasFInin.Models.Equipamento
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes - Equipamentos</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdEquipamento</dd>
+    <dt class="col-sm-3">Tag</dt>
+    <dd class="col-sm-9">@Model.Tag</dd>
+    <dt class="col-sm-3">Nome do equipamento</dt>
+    <dd class="col-sm-9">@Model.NomeEquipamento</dd>
+    <dt class="col-sm-3">Tipo</dt>
+    <dd class="col-sm-9">@Model.Tipo</dd>
+    <dt class="col-sm-3">Criticidade</dt>
+    <dd class="col-sm-9">@Model.Criticidade</dd>
+    <dt class="col-sm-3">Situação</dt>
+    <dd class="col-sm-9">@Model.Situacao</dd>
+    <dt class="col-sm-3">Setor</dt>
+    <dd class="col-sm-9">@Model.IdSetor</dd>
+    <dt class="col-sm-3">Responsável</dt>
+    <dd class="col-sm-9">@Model.IdResponsavel</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.IdEquipamento" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

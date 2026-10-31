@@ -1,0 +1,43 @@
+@model PetrobrasFInin.Models.Usuario
+@{
+    ViewData["Title"] = "Novo cadastro";
+}
+
+<h1>Novo cadastro - Usuários</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="NomeCompleto" class="form-label">Nome completo</label>
+        <input asp-for="NomeCompleto" type="text" class="form-control" />
+        <span asp-validation-for="NomeCompleto" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Cpf" class="form-label">CPF</label>
+        <input asp-for="Cpf" type="text" class="form-control" />
+        <span asp-validation-for="Cpf" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">E-mail</label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Senha" class="form-label">Senha</label>
+        <input asp-for="Senha" type="password" class="form-control" autocomplete="new-password" minlength="8" required />
+        <span asp-validation-for="Senha" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdPerfil" class="form-label">Perfil</label>
+        <select asp-for="IdPerfil" class="form-select" asp-items="ViewBag.IdPerfil">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdPerfil" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

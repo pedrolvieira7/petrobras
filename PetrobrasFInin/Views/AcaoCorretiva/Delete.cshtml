@@ -1,0 +1,30 @@
+@model PetrobrasFInin.Models.AcaoCorretiva
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h1>Excluir - Ações corretivas</h1>
+<h4>Tem certeza de que deseja excluir este registro?</h4>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdAcao</dd>
+    <dt class="col-sm-3">Código da ação</dt>
+    <dd class="col-sm-9">@Model.CodigoAcao</dd>
+    <dt class="col-sm-3">Descrição</dt>
+    <dd class="col-sm-9">@Model.DescricaoAcao</dd>
+    <dt class="col-sm-3">Prazo</dt>
+    <dd class="col-sm-9">@Model.Prazo</dd>
+    <dt class="col-sm-3">Situação</dt>
+    <dd class="col-sm-9">@Model.Situacao</dd>
+    <dt class="col-sm-3">Análise</dt>
+    <dd class="col-sm-9">@Model.IdAnalise</dd>
+    <dt class="col-sm-3">Responsável</dt>
+    <dd class="col-sm-9">@Model.IdResponsavel</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.IdAcao" method="post">
+    <input type="hidden" asp-for="IdAcao" />
+    <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

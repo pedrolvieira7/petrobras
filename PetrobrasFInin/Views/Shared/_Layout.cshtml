@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SIAF</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <aside class="sidebar">
+        <a class="brand" asp-controller="Home" asp-action="Index"><span class="brand-mark">S</span><span><strong>SIAF</strong><small>Sistema de Análise de Falhas</small></span></a>
+        <div class="nav-caption">ESPAÇO DE TRABALHO</div>
+        <nav class="side-nav">
+            <a asp-controller="Home" asp-action="Index"><span>▦</span> Visão geral</a>
+            <a asp-controller="Falha" asp-action="Index"><span>◉</span> Registro de falhas</a>
+            <a asp-controller="Equipamento" asp-action="Index"><span>▤</span> Equipamentos</a>
+            <a asp-controller="Analise" asp-action="Index"><span>⌕</span> Análise de falhas</a>
+            <a asp-controller="CausaRaiz" asp-action="Index"><span>⌁</span> Causa raiz</a>
+            <a asp-controller="AcaoCorretiva" asp-action="Index"><span>✓</span> Ações corretivas</a>
+            <a asp-controller="Analise" asp-action="Index"><span>◇</span> Avaliação e aprovação</a>
+            <a asp-controller="Home" asp-action="Relatorios"><span>▥</span> Relatórios</a>
+        </nav>
+        <div class="nav-caption admin-caption">ADMINISTRAÇÃO</div>
+        <nav class="side-nav">
+            <a asp-controller="Usuario" asp-action="Index"><span>♙</span> Funcionários</a>
+            <a asp-controller="Perfil" asp-action="Index"><span>◈</span> Controle de permissões</a>
+            <a asp-controller="Setor" asp-action="Index"><span>⌂</span> Setores</a>
+            <a asp-controller="Anexo" asp-action="Index"><span>▧</span> Anexos</a>
+            <a asp-controller="HistoricoAuditoria" asp-action="Index"><span>◷</span> Histórico e rastreabilidade</a>
+        </nav>
+        <div class="sidebar-footer"><span class="status-dot"></span> Sistema operacional <small>Ambiente interno · SIAF</small><small><a style="color:#b8d5c6;text-decoration:none" href="/Acesso/Login">Tela de acesso</a></small></div>
+    </aside>
+    <main class="main-area">
+        <header class="topbar"><div><span class="breadcrumb-text">PETROBRAS /</span> <span class="breadcrumb-current">@ViewData["Title"]</span></div><div class="topbar-user"><span class="online-dot"></span><span class="avatar">PL</span><span class="user-label"><strong>Área de trabalho</strong><small>Gestão de confiabilidade</small></span></div></header>
+        <div class="page-content">@RenderBody()</div>
+        <footer class="page-footer">SIAF · Sistema de Análise de Falhas <span>Projeto Integrador · 2026</span></footer>
+    </main>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

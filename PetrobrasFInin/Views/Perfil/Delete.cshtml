@@ -1,0 +1,22 @@
+@model PetrobrasFInin.Models.Perfil
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h1>Excluir - Perfis</h1>
+<h4>Tem certeza de que deseja excluir este registro?</h4>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdPerfil</dd>
+    <dt class="col-sm-3">Nome</dt>
+    <dd class="col-sm-9">@Model.Nome</dd>
+    <dt class="col-sm-3">Descrição</dt>
+    <dd class="col-sm-9">@Model.Descricao</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.IdPerfil" method="post">
+    <input type="hidden" asp-for="IdPerfil" />
+    <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

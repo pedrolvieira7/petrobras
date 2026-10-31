@@ -1,0 +1,51 @@
+@model PetrobrasFInin.Models.AcaoCorretiva
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar - Ações corretivas</h1>
+
+<form asp-action="Edit" asp-route-id="@Model.IdAcao" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="IdAcao" />
+    <div class="mb-3">
+        <label asp-for="CodigoAcao" class="form-label">Código da ação</label>
+        <input asp-for="CodigoAcao" type="text" class="form-control" />
+        <span asp-validation-for="CodigoAcao" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DescricaoAcao" class="form-label">Descrição</label>
+        <input asp-for="DescricaoAcao" type="text" class="form-control" />
+        <span asp-validation-for="DescricaoAcao" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Prazo" class="form-label">Prazo</label>
+        <input asp-for="Prazo" type="date" class="form-control" />
+        <span asp-validation-for="Prazo" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Situacao" class="form-label">Situação</label>
+        <input asp-for="Situacao" type="text" class="form-control" />
+        <span asp-validation-for="Situacao" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdAnalise" class="form-label">Análise</label>
+        <select asp-for="IdAnalise" class="form-select" asp-items="ViewBag.IdAnalise">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdAnalise" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdResponsavel" class="form-label">Responsável</label>
+        <select asp-for="IdResponsavel" class="form-select" asp-items="ViewBag.IdResponsavel">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdResponsavel" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar alterações</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

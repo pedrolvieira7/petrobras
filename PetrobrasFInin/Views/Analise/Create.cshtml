@@ -1,0 +1,57 @@
+@model PetrobrasFInin.Models.Analise
+@{
+    ViewData["Title"] = "Novo cadastro";
+}
+
+<h1>Novo cadastro - Análises</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="CodigoAnalise" class="form-label">Código da análise</label>
+        <input asp-for="CodigoAnalise" type="text" class="form-control" />
+        <span asp-validation-for="CodigoAnalise" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="MetodoAnalise" class="form-label">Método de análise</label>
+        <input asp-for="MetodoAnalise" type="text" class="form-control" />
+        <span asp-validation-for="MetodoAnalise" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Disciplina" class="form-label">Disciplina</label>
+        <input asp-for="Disciplina" type="text" class="form-control" />
+        <span asp-validation-for="Disciplina" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DecisaoGestor" class="form-label">Decisão do gestor</label>
+        <input asp-for="DecisaoGestor" type="text" class="form-control" />
+        <span asp-validation-for="DecisaoGestor" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdFalha" class="form-label">Falha</label>
+        <select asp-for="IdFalha" class="form-select" asp-items="ViewBag.IdFalha">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdFalha" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdAnalista" class="form-label">Analista</label>
+        <select asp-for="IdAnalista" class="form-select" asp-items="ViewBag.IdAnalista">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdAnalista" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdGestor" class="form-label">Gestor</label>
+        <select asp-for="IdGestor" class="form-select" asp-items="ViewBag.IdGestor">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdGestor" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

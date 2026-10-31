@@ -1,0 +1,15 @@
+CORRECAO DE CADASTROS - PetrobrasFInin
+
+Alteracoes realizadas:
+- As propriedades de navegacao do Entity Framework foram marcadas para nao serem validadas como campos do formulario. O formulario deve enviar os IDs (por exemplo, IdSetor e IdResponsavel), nao os objetos de navegacao.
+- As telas de cadastro e edicao agora mostram os erros de validacao na propria pagina.
+- Incluido AjustarSenhaUsuario.sql para ampliar a coluna de senha.
+
+IMPORTANTE:
+1. Abra PetrobrasFInin.sln no Visual Studio 2022.
+2. Execute AjustarSenhaUsuario.sql no banco dbPetrobras_SIAF se ainda nao o fez.
+3. Recompile a solucao.
+4. Teste primeiro o cadastro de Setor e Perfil; depois Usuario e Equipamento. Relacionamentos precisam apontar para registros existentes.
+5. EnsureCreated nao atualiza tabelas de um banco que ja existe. Se a estrutura real do banco estiver diferente dos Models, sera necessario alinhar o schema.
+
+Se um salvamento falhar no SQL Server, consulte Exibir > Saida > Depuracao para obter a excecao completa.

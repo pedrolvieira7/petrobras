@@ -1,0 +1,27 @@
+@model PetrobrasFInin.Models.Perfil
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar - Perfis</h1>
+
+<form asp-action="Edit" asp-route-id="@Model.IdPerfil" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="IdPerfil" />
+    <div class="mb-3">
+        <label asp-for="Nome" class="form-label">Nome</label>
+        <input asp-for="Nome" type="text" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Descricao" class="form-label">Descrição</label>
+        <input asp-for="Descricao" type="text" class="form-control" />
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar alterações</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,18 @@
+@model PetrobrasFInin.Models.Perfil
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes - Perfis</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdPerfil</dd>
+    <dt class="col-sm-3">Nome</dt>
+    <dd class="col-sm-9">@Model.Nome</dd>
+    <dt class="col-sm-3">Descrição</dt>
+    <dd class="col-sm-9">@Model.Descricao</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.IdPerfil" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

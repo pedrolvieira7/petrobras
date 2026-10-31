@@ -1,0 +1,257 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PetrobrasFInin
+build_property.RootNamespace = PetrobrasFInin
+build_property.ProjectDir = C:\Users\tarde.cetafaju\Downloads\PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL\PetrobrasFInin\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\tarde.cetafaju\Downloads\PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL\PetrobrasFInin
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/AcaoCorretiva/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNhb0NvcnJldGl2YVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/AcaoCorretiva/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNhb0NvcnJldGl2YVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/AcaoCorretiva/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNhb0NvcnJldGl2YVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/AcaoCorretiva/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNhb0NvcnJldGl2YVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/AcaoCorretiva/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNhb0NvcnJldGl2YVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Acesso/CriarConta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNlc3NvXENyaWFyQ29udGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Acesso/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNlc3NvXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Analise/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbGlzZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Analise/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbGlzZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Analise/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbGlzZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Analise/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbGlzZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Analise/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbGlzZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Anexo/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5leG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Anexo/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5leG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Anexo/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5leG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Anexo/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5leG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Anexo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5leG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/CausaRaiz/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1c2FSYWl6XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/CausaRaiz/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1c2FSYWl6XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/CausaRaiz/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1c2FSYWl6XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/CausaRaiz/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1c2FSYWl6XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/CausaRaiz/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1c2FSYWl6XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Equipamento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Equipamento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Equipamento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Equipamento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Equipamento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Falha/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFsaGFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Falha/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFsaGFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Falha/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFsaGFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Falha/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFsaGFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Falha/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFsaGFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/HistoricoAuditoria/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yaWNvQXVkaXRvcmlhXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/HistoricoAuditoria/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yaWNvQXVkaXRvcmlhXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/HistoricoAuditoria/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yaWNvQXVkaXRvcmlhXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/HistoricoAuditoria/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yaWNvQXVkaXRvcmlhXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/HistoricoAuditoria/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yaWNvQXVkaXRvcmlhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Home/Relatorios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWxhdG9yaW9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Perfil/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Perfil/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Perfil/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Perfil/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Perfil/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Setor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0b3JcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Setor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0b3JcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Setor/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0b3JcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Setor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0b3JcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Setor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0b3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Usuario/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Usuario/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Usuario/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Usuario/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Usuario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tarde.cetafaju/Downloads/PetrobrasFInin_CORRIGIDO_SALVAMENTO_GERAL/PetrobrasFInin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-hvcenghmx9

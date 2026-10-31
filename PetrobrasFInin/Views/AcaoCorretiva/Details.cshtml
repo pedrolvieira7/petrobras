@@ -1,0 +1,26 @@
+@model PetrobrasFInin.Models.AcaoCorretiva
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes - Ações corretivas</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdAcao</dd>
+    <dt class="col-sm-3">Código da ação</dt>
+    <dd class="col-sm-9">@Model.CodigoAcao</dd>
+    <dt class="col-sm-3">Descrição</dt>
+    <dd class="col-sm-9">@Model.DescricaoAcao</dd>
+    <dt class="col-sm-3">Prazo</dt>
+    <dd class="col-sm-9">@Model.Prazo</dd>
+    <dt class="col-sm-3">Situação</dt>
+    <dd class="col-sm-9">@Model.Situacao</dd>
+    <dt class="col-sm-3">Análise</dt>
+    <dd class="col-sm-9">@Model.IdAnalise</dd>
+    <dt class="col-sm-3">Responsável</dt>
+    <dd class="col-sm-9">@Model.IdResponsavel</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.IdAcao" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

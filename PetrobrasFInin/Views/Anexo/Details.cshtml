@@ -1,0 +1,24 @@
+@model PetrobrasFInin.Models.Anexo
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes - Anexos</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Código</dt>
+    <dd class="col-sm-9">@Model.IdAnexo</dd>
+    <dt class="col-sm-3">Nome do arquivo</dt>
+    <dd class="col-sm-9">@Model.NomeArquivo</dd>
+    <dt class="col-sm-3">Caminho do arquivo</dt>
+    <dd class="col-sm-9">@Model.CaminhoArquivo</dd>
+    <dt class="col-sm-3">Falha (opcional)</dt>
+    <dd class="col-sm-9">@Model.IdFalha</dd>
+    <dt class="col-sm-3">Análise (opcional)</dt>
+    <dd class="col-sm-9">@Model.IdAnalise</dd>
+    <dt class="col-sm-3">Ação corretiva (opcional)</dt>
+    <dd class="col-sm-9">@Model.IdAcao</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.IdAnexo" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

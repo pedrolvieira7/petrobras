@@ -1,0 +1,40 @@
+@model IEnumerable<PetrobrasFInin.Models.CausaRaiz>
+@{
+    ViewData["Title"] = "Causas raiz";
+}
+
+<h1>Causas raiz</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Novo cadastro</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+                <th>@Html.DisplayNameFor(model => model.First().IdCausa)</th>
+                <th>@Html.DisplayNameFor(model => model.First().CausaPrincipal)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Categoria)</th>
+                <th>@Html.DisplayNameFor(model => model.First().TipoCausa)</th>
+                <th>@Html.DisplayNameFor(model => model.First().IdAnalise)</th>
+                <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+                <td>@item.IdCausa</td>
+                <td>@item.CausaPrincipal</td>
+                <td>@item.Categoria</td>
+                <td>@item.TipoCausa</td>
+                <td>@item.IdAnalise</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.IdCausa">Detalhes</a> |
+                    <a asp-action="Edit" asp-route-id="@item.IdCausa">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdCausa">Excluir</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

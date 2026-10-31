@@ -1,0 +1,38 @@
+@model PetrobrasFInin.Models.HistoricoAuditorium
+@{
+    ViewData["Title"] = "Novo cadastro";
+}
+
+<h1>Novo cadastro - Histórico de auditoria</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="TipoEvento" class="form-label">Tipo de evento</label>
+        <input asp-for="TipoEvento" type="text" class="form-control" />
+        <span asp-validation-for="TipoEvento" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="RegistroAfetado" class="form-label">Registro afetado</label>
+        <input asp-for="RegistroAfetado" type="text" class="form-control" />
+        <span asp-validation-for="RegistroAfetado" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DataHora" class="form-label">Data e hora</label>
+        <input asp-for="DataHora" type="datetime-local" class="form-control" />
+        <span asp-validation-for="DataHora" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdUsuario" class="form-label">Usuário</label>
+        <select asp-for="IdUsuario" class="form-select" asp-items="ViewBag.IdUsuario">
+            <option value="">-- Selecione --</option>
+        </select>
+        <span asp-validation-for="IdUsuario" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

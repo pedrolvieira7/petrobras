@@ -1,0 +1,23 @@
+PETROBRASFININ - CORREÇÃO DE CADASTRO DE EQUIPAMENTOS
+Compatível com Visual Studio 2022 e .NET 7.
+
+ALTERAÇÃO DA SENHA NO BANCO
+O arquivo AjustarSenhaUsuario.sql está incluído no projeto. Execute-o uma vez no SQL Server Object Explorer do Visual Studio, conectado ao banco dbPetrobras_SIAF. Ele altera dbo.usuario.senha para VARCHAR(255) NOT NULL.
+
+CORREÇÕES NO CADASTRO DE EQUIPAMENTOS
+- As propriedades de navegação do Entity Framework não bloqueiam mais a validação do formulário.
+- O formulário valida se o setor e o responsável selecionados existem.
+- Erros ao salvar são registrados no log e exibidos na tela.
+- A listagem funciona mesmo quando ainda não há equipamentos cadastrados.
+- Mensagens de sucesso e erro aparecem na listagem.
+
+COMO ABRIR
+1. Extraia o ZIP em uma pasta.
+2. Abra PetrobrasFInin.sln no Visual Studio 2022.
+3. Aguarde a restauração dos pacotes NuGet.
+4. Confira appsettings.json e confirme que a conexão aponta para dbPetrobras_SIAF.
+5. Execute AjustarSenhaUsuario.sql uma vez no banco correto, se ainda não executou.
+6. Recompile e execute o projeto.
+
+NOTA
+O projeto não pôde ser compilado contra o SQL Server do usuário neste ambiente. Se houver erro no banco, confira a janela Saída do Visual Studio; o controller agora também registra os detalhes técnicos no log.
