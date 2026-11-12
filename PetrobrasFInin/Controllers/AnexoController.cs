@@ -1,104 +1,33 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using PetrobrasFInin.Data;
-using PetrobrasFInin.Models;
 
 namespace PetrobrasFInin.Controllers;
 
+// Telas legadas substituídas pelo fluxo completo de ocorrências.
+// A antiga manutenção direta permitia alterar status e aprovação sem validação.
+[Authorize]
 public class AnexoController : Controller
 {
-    private readonly PetrobrasContext _context;
+    [HttpGet]
+    public IActionResult Index() => RedirectToAction("Index", "Ocorrencias");
 
-    public AnexoController(PetrobrasContext context)
-    {
-        _context = context;
-    }
+    [HttpGet]
+    public IActionResult Details(int? id) => RedirectToAction("Index", "Ocorrencias");
 
-    private async Task CarregarListas()
-    {
-        ViewData["IdFalha"] = new SelectList(await _context.Set<Falha>().ToListAsync(), "IdFalha", "TituloFalha");
-        ViewData["IdAnalise"] = new SelectList(await _context.Set<Analise>().ToListAsync(), "IdAnalise", "CodigoAnalise");
-        ViewData["IdAcao"] = new SelectList(await _context.Set<AcaoCorretiva>().ToListAsync(), "IdAcao", "CodigoAcao");
-    }
+    [HttpGet]
+    public IActionResult Create() => RedirectToAction("Index", "Ocorrencias");
 
-    public async Task<IActionResult> Index()
-    {
-        return View(await _context.Set<Anexo>().ToListAsync());
-    }
+    [HttpGet]
+    public IActionResult Edit(int? id) => RedirectToAction("Index", "Ocorrencias");
 
-    public async Task<IActionResult> Details(int? id)
-    {
-        if (id == null) return NotFound();
-        var item = await _context.Set<Anexo>().FirstOrDefaultAsync(x => x.IdAnexo == id);
-        if (item == null) return NotFound();
-        return View(item);
-    }
+    [HttpGet]
+    public IActionResult Delete(int? id) => RedirectToAction("Index", "Ocorrencias");
 
-    public async Task<IActionResult> Create()
-    {
-        await CarregarListas();
-        return View();
-    }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("NomeArquivo,CaminhoArquivo,IdFalha,IdAnalise,IdAcao")] Anexo item)
-    {
-        if (!ModelState.IsValid)
-        {
-            await CarregarListas();
-            return View(item);
-        }
-
-        _context.Add(item);
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
-    }
-
-    public async Task<IActionResult> Edit(int? id)
-    {
-        if (id == null) return NotFound();
-        var item = await _context.Set<Anexo>().FindAsync(id);
-        if (item == null) return NotFound();
-        await CarregarListas();
-        return View(item);
-    }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("IdAnexo,NomeArquivo,CaminhoArquivo,IdFalha,IdAnalise,IdAcao")] Anexo item)
-    {
-        if (id != item.IdAnexo) return NotFound();
-        if (!ModelState.IsValid)
-        {
-            await CarregarListas();
-            return View(item);
-        }
-
-        _context.Update(item);
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
-    }
-
-    public async Task<IActionResult> Delete(int? id)
-    {
-        if (id == null) return NotFound();
-        var item = await _context.Set<Anexo>().FirstOrDefaultAsync(x => x.IdAnexo == id);
-        if (item == null) return NotFound();
-        return View(item);
-    }
-
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int id)
-    {
-        var item = await _context.Set<Anexo>().FindAsync(id);
-        if (item != null)
-        {
-            _context.Remove(item);
-            await _context.SaveChangesAsync();
-        }
-        return RedirectToAction(nameof(Index));
-    }
+    // Endpoints antigos de escrita ficam bloqueados: use OcorrenciasController.
+    [HttpPost, ValidateAntiForgeryToken]
+    public IActionResult Create(object? item) => Forbid();
+    [HttpPost, ValidateAntiForgeryToken]
+    public IActionResult Edit(int id, object? item) => Forbid();
+    [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
+    public IActionResult DeleteConfirmed(int id) => Forbid();
 }

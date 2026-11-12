@@ -38,6 +38,16 @@ public partial class Falha
     [Unicode(false)]
     public string Situacao { get; set; } = null!;
 
+    [Column("descricao")]
+    public string? Descricao { get; set; }
+
+    [Column("modo_falha")]
+    [StringLength(100)]
+    public string? ModoFalha { get; set; }
+
+    [Column("horas_parada", TypeName = "numeric(12,2)")]
+    public decimal HorasParada { get; set; }
+
     [Column("id_equipamento")]
     public int IdEquipamento { get; set; }
 

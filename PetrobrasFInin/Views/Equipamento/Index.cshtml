@@ -15,7 +15,7 @@
 }
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Novo cadastro</a>
+    @if (User.IsInRole("Administrador")) { <a asp-action="Create" class="btn btn-primary">Novo cadastro</a> }
 </p>
 
 @if (Model == null || !Model.Any())
@@ -54,8 +54,8 @@ else
                 <td>@item.IdResponsavel</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.IdEquipamento">Detalhes</a> |
-                    <a asp-action="Edit" asp-route-id="@item.IdEquipamento">Editar</a> |
-                    <a asp-action="Delete" asp-route-id="@item.IdEquipamento">Excluir</a>
+                    @if (User.IsInRole("Administrador")) { <a asp-action="Edit" asp-route-id="@item.IdEquipamento">Editar</a> <span> | </span> }
+                    @if (User.IsInRole("Administrador")) { <a asp-action="Delete" asp-route-id="@item.IdEquipamento">Excluir</a> }
                 </td>
             </tr>
         }

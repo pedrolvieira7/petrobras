@@ -61,7 +61,7 @@ if (app.Configuration.GetValue<bool>("SIAF_INITIALIZE_DATABASE"))
             await db.GetService<IRelationalDatabaseCreator>().CreateTablesAsync();
             logger.LogInformation("Tabelas do SIAF criadas no esquema siaf.");
         }
-        else if (count != 10)
+        else if (count != 10 && count != 12)
         {
             throw new InvalidOperationException(
                 "Esquema siaf parcialmente criado. Verifique as tabelas antes de reiniciar a inicialização.");

@@ -1,0 +1,11 @@
+@model PetrobrasFInin.ViewModels.RegistroAcaoVm
+@{ ViewData["Title"] = "Plano corretivo"; }
+<div class="page-heading"><div><div class="eyebrow">ETAPA 03</div><h1>Propor ação corretiva</h1><p>O gestor deverá aprovar o plano antes da execução.</p></div></div>
+<section class="panel" style="padding:24px;max-width:950px"><form method="post" asp-action="NovaAcao" class="row g-3">
+ @Html.AntiForgeryToken()<input type="hidden" asp-for="IdAnalise" /><div asp-validation-summary="All" class="text-danger col-12"></div>
+ <div class="col-md-6"><label class="form-label">Código da ação</label><input asp-for="CodigoAcao" class="form-control" /></div>
+ <div class="col-md-6"><label class="form-label">Responsável pela execução</label><select asp-for="IdResponsavel" asp-items="ViewBag.Responsaveis" class="form-select"><option value="0">Selecione</option></select></div>
+ <div class="col-12"><label class="form-label">Descrição da correção</label><textarea asp-for="DescricaoAcao" rows="4" class="form-control"></textarea></div>
+ <div class="col-md-6"><label class="form-label">Prazo de execução</label><input type="date" asp-for="Prazo" asp-format="{0:yyyy-MM-dd}" class="form-control" /></div>
+ <div class="col-12"><button class="btn btn-primary">Enviar plano para avaliação</button></div>
+</form></section>

@@ -1,3 +1,11 @@
+> **Atualização 12/11/2026:** para o fluxo integrado de ocorrências, consulte
+> `LEIA_PRIMEIRO_SIAF.md` na raiz do repositório e execute
+> `sql/01_atualizar_siaf_sem_apagar_dados.sql` antes da publicação.
+> A estrutura nova tem **12 tabelas** e a variável
+> `SIAF_INITIALIZE_DATABASE` deve permanecer como **false**.
+> As orientações abaixo sobre criar as primeiras 10 tabelas referem-se
+> apenas à instalação inicial antiga; não as repita em banco já existente.
+
 # SIAF — implantação Railway + Supabase (PostgreSQL)
 
 Esta atualização mantém o visual e as funcionalidades MVC do repositório original,

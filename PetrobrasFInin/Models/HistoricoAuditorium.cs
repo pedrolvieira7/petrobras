@@ -27,6 +27,12 @@ public partial class HistoricoAuditorium
     [Column("data_hora", TypeName = "timestamp without time zone")]
     public DateTime DataHora { get; set; }
 
+    [Column("dados_antes")]
+    public string? DadosAntes { get; set; }
+
+    [Column("dados_depois")]
+    public string? DadosDepois { get; set; }
+
     [Column("id_usuario")]
     public int IdUsuario { get; set; }
 

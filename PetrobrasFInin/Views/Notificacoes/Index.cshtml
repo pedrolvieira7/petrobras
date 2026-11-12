@@ -1,0 +1,7 @@
+@model IEnumerable<PetrobrasFInin.Models.Notificacao>
+@{ ViewData["Title"] = "Notificações"; }
+<div class="page-heading"><div><div class="eyebrow">CENTRAL DE AVISOS</div><h1>Notificações</h1><p>Falhas, análises, aprovações e ações atribuídas à sua conta.</p></div></div>
+<section class="panel" style="padding:24px"><div class="table-responsive"><table class="table"><thead><tr><th>Data</th><th>Mensagem</th><th>Situação</th><th></th></tr></thead><tbody>
+@foreach(var n in Model) { <tr><td>@n.CriadoEm.ToString("dd/MM/yyyy HH:mm") UTC</td><td><strong>@n.Titulo</strong><div>@n.Mensagem</div></td><td>@(n.LidoEm == null ? "Não lida" : "Lida")</td><td><form asp-action="Ler" method="post">@Html.AntiForgeryToken()<input name="id" type="hidden" value="@n.IdNotificacao"/><button class="btn btn-sm btn-primary">Abrir / marcar como lida</button></form></td></tr>}
+@if (!Model.Any()) { <tr><td colspan="4">Sem notificações.</td></tr> }
+</tbody></table></div></section>
