@@ -59,6 +59,13 @@
                     <label for="senha">Criar senha</label>
                     <input id="senha" name="senha" type="password" minlength="8" maxlength="100" placeholder="Mínimo de 8 caracteres" required />
 
+                    @if (ViewBag.PrimeiroCadastro == true)
+                    {
+                        <label for="chaveInicial">Chave de configuração inicial</label>
+                        <input id="chaveInicial" name="chaveInicial" type="password" autocomplete="off"
+                               placeholder="Chave definida em SIAF_BOOTSTRAP_KEY" required />
+                    }
+
                     <button type="submit" class="auth-submit" @(perfis.Count == 0 ? "disabled" : "")>Criar usuário <span>→</span></button>
                 </form>
                 <div class="auth-create">Já possui acesso? <a href="/Acesso/Login">Voltar para login</a></div>

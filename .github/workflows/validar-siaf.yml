@@ -1,0 +1,20 @@
+name: Validar SIAF (.NET 10)
+on:
+  push:
+    branches: [main, 'feat/**']
+  pull_request:
+
+jobs:
+  compilar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v4
+      - name: Instalar .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Restaurar pacotes
+        run: dotnet restore PetrobrasFInin/PetrobrasFInin.csproj
+      - name: Compilar e publicar
+        run: dotnet publish PetrobrasFInin/PetrobrasFInin.csproj -c Release -o saida --no-restore
