@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using PetrobrasFInin.Models;
 
 namespace PetrobrasFInin.Controllers;
 
+[Authorize(Roles = "Administrador")]
 public class SetorController : Controller
 {
     private readonly PetrobrasContext _context;

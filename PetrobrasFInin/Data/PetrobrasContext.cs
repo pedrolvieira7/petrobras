@@ -36,10 +36,15 @@ public partial class PetrobrasContext : DbContext
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
+    public virtual DbSet<Notificacao> Notificacoes { get; set; }
+
+    public virtual DbSet<AnexoConteudo> AnexosConteudo { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // O Supabase não expõe o esquema siaf por padrão na API pública.
         modelBuilder.HasDefaultSchema("siaf");
+        modelBuilder.Entity<AnexoConteudo>().HasKey(x => x.IdAnexo);
 
         // Dados de formulários HTML não possuem fuso horário.
         modelBuilder.Entity<Falha>().Property(e => e.DataOcorrencia).HasColumnType("timestamp without time zone");

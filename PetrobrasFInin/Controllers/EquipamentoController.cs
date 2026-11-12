@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authorization;
+using PetrobrasFInin.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +8,7 @@ using PetrobrasFInin.Models;
 
 namespace PetrobrasFInin.Controllers;
 
+[Authorize]
 public class EquipamentoController : Controller
 {
     private readonly PetrobrasContext _context;
@@ -52,6 +55,7 @@ public class EquipamentoController : Controller
         return View(item);
     }
 
+    [Authorize(Roles = "Administrador")]
     public async Task<IActionResult> Create()
     {
         await CarregarListas();
@@ -67,11 +71,15 @@ public class EquipamentoController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Administrador")]
     public async Task<IActionResult> Create([Bind("Tag,NomeEquipamento,Tipo,Criticidade,Situacao,IdSetor,IdResponsavel")] Equipamento item)
     {
         ModelState.Remove(nameof(Equipamento.IdSetorNavigation));
         ModelState.Remove(nameof(Equipamento.IdResponsavelNavigation));
         ModelState.Remove(nameof(Equipamento.Falhas));
+
+        if (await _context.Equipamentos.AnyAsync(x => x.Tag == item.Tag && x.IdEquipamento != item.IdEquipamento))
+            ModelState.AddModelError(nameof(item.Tag), "Tag já cadastrada em outro equipamento.");
 
         if (ModelState.IsValid)
         {
@@ -89,6 +97,9 @@ public class EquipamentoController : Controller
             try
             {
                 _context.Equipamentos.Add(item);
+                await _context.SaveChangesAsync();
+                RegistroSiaf.Auditar(_context, User, "Criar equipamento", $"equipamento:{item.IdEquipamento}",
+                    depois: new { item.Tag, item.NomeEquipamento, item.IdSetor });
                 await _context.SaveChangesAsync();
                 TempData["Sucesso"] = "Equipamento cadastrado com sucesso.";
                 return RedirectToAction(nameof(Index));
@@ -109,6 +120,7 @@ public class EquipamentoController : Controller
         return View(item);
     }
 
+    [Authorize(Roles = "Administrador")]
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null) return NotFound();
@@ -122,6 +134,7 @@ public class EquipamentoController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Administrador")]
     public async Task<IActionResult> Edit(int id, [Bind("IdEquipamento,Tag,NomeEquipamento,Tipo,Criticidade,Situacao,IdSetor,IdResponsavel")] Equipamento item)
     {
         if (id != item.IdEquipamento) return NotFound();
@@ -129,6 +142,9 @@ public class EquipamentoController : Controller
         ModelState.Remove(nameof(Equipamento.IdSetorNavigation));
         ModelState.Remove(nameof(Equipamento.IdResponsavelNavigation));
         ModelState.Remove(nameof(Equipamento.Falhas));
+
+        if (await _context.Equipamentos.AnyAsync(x => x.Tag == item.Tag && x.IdEquipamento != item.IdEquipamento))
+            ModelState.AddModelError(nameof(item.Tag), "Tag já cadastrada em outro equipamento.");
 
         if (ModelState.IsValid)
         {
@@ -146,6 +162,9 @@ public class EquipamentoController : Controller
             try
             {
                 _context.Equipamentos.Update(item);
+                await _context.SaveChangesAsync();
+                RegistroSiaf.Auditar(_context, User, "Editar equipamento", $"equipamento:{item.IdEquipamento}",
+                    depois: new { item.Tag, item.NomeEquipamento, item.Situacao });
                 await _context.SaveChangesAsync();
                 TempData["Sucesso"] = "Equipamento atualizado com sucesso.";
                 return RedirectToAction(nameof(Index));
@@ -166,6 +185,7 @@ public class EquipamentoController : Controller
         return View(item);
     }
 
+    [Authorize(Roles = "Administrador")]
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null) return NotFound();
@@ -178,6 +198,7 @@ public class EquipamentoController : Controller
         return View(item);
     }
 
+    [Authorize(Roles = "Administrador")]
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
@@ -188,6 +209,9 @@ public class EquipamentoController : Controller
             try
             {
                 _context.Equipamentos.Remove(item);
+                await _context.SaveChangesAsync();
+                RegistroSiaf.Auditar(_context, User, "Excluir equipamento", $"equipamento:{id}",
+                    antes: new { item.Tag, item.NomeEquipamento });
                 await _context.SaveChangesAsync();
                 TempData["Sucesso"] = "Equipamento excluído com sucesso.";
             }

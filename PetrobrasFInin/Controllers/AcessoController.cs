@@ -24,6 +24,9 @@ public class AcessoController : Controller
         _configuration = configuration;
     }
 
+    private bool PodeGerenciarContas() =>
+        User.IsInRole("Administrador") || User.IsInRole("Gestor");
+
     [AllowAnonymous]
     [HttpGet]
     public async Task<IActionResult> Login()
@@ -37,7 +40,7 @@ public class AcessoController : Controller
     public async Task<IActionResult> CriarConta()
     {
         var primeiro = !await _context.Usuarios.AnyAsync();
-        if (!primeiro && !User.IsInRole("Administrador"))
+        if (!primeiro && !PodeGerenciarContas())
             return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
 
         await CarregarPerfis(primeiro);
@@ -51,7 +54,7 @@ public class AcessoController : Controller
         string nome, string email, string cpf, int? perfil, string senha, string? chaveInicial)
     {
         var primeiro = !await _context.Usuarios.AnyAsync();
-        if (!primeiro && !User.IsInRole("Administrador"))
+        if (!primeiro && !PodeGerenciarContas())
             return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
 
         await CarregarPerfis(primeiro);
@@ -85,10 +88,23 @@ public class AcessoController : Controller
             var admin = await _context.Perfils.SingleAsync(p => p.Nome == "Administrador");
             perfil = admin.IdPerfil;
         }
-        else if (!await _context.Perfils.AnyAsync(p => p.IdPerfil == perfil.Value))
+        else
         {
-            ViewBag.Erro = "O perfil selecionado não existe.";
-            return View();
+            var perfilSelecionado = await _context.Perfils.AsNoTracking()
+                .FirstOrDefaultAsync(p => p.IdPerfil == perfil.Value);
+
+            if (perfilSelecionado == null)
+            {
+                ViewBag.Erro = "O perfil selecionado não existe.";
+                return View();
+            }
+
+            if (!User.IsInRole("Administrador") &&
+                perfilSelecionado.Nome == "Administrador")
+            {
+                ViewBag.Erro = "Somente administradores podem cadastrar administradores.";
+                return View();
+            }
         }
 
         email = email.Trim();
@@ -162,6 +178,8 @@ public class AcessoController : Controller
         var perfis = await _context.Perfils.AsNoTracking().OrderBy(p => p.Nome).ToListAsync();
         ViewBag.Perfis = primeiro
             ? perfis.Where(p => p.Nome == "Administrador").ToList()
-            : perfis;
+            : User.IsInRole("Administrador")
+                ? perfis
+                : perfis.Where(p => p.Nome != "Administrador").ToList();
     }
 }

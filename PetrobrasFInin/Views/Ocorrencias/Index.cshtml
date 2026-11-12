@@ -1,0 +1,20 @@
+@model IEnumerable<PetrobrasFInin.Models.Falha>
+@{
+    ViewData["Title"] = "Ocorrências";
+}
+<div class="page-heading"><div><div class="eyebrow">FLUXO DE TRATAMENTO</div><h1>Registro de falhas</h1><p>Pesquise e acompanhe as falhas da operação do registro à conclusão.</p></div><a asp-action="NovaFalha" class="btn-primary-custom">＋ Registrar falha</a></div>
+@if (TempData["Sucesso"] != null) { <div class="alert alert-success">@TempData["Sucesso"]</div> }
+<section class="panel" style="padding:22px;margin-bottom:20px">
+ <form method="get" asp-action="Index" class="row g-3">
+  <div class="col-md-3"><label class="form-label">Código ou descrição</label><input name="busca" value="@ViewBag.Busca" class="form-control" placeholder="Buscar falha" /></div>
+  <div class="col-md-3"><label class="form-label">Equipamento</label><select name="equipamento" asp-items="ViewBag.Equipamentos" class="form-select"><option value="">Todos</option></select></div>
+  <div class="col-md-2"><label class="form-label">Situação</label><select name="situacao" class="form-select"><option value="">Todas</option>@foreach (var situacao in new[] {"Aberta","Em análise","Em revisão","Aguardando aprovação","Em correção","Concluída"}) { <option value="@situacao" selected="@(ViewBag.Situacao == situacao)">@situacao</option> }</select></div>
+  <div class="col-md-2"><label class="form-label">De</label><input type="date" name="inicio" class="form-control" value="@ViewBag.Inicio" /></div>
+  <div class="col-md-2"><label class="form-label">Até</label><input type="date" name="fim" class="form-control" value="@ViewBag.Fim" /></div>
+  <div class="col-12"><button class="btn btn-primary" type="submit">Filtrar</button> <a class="btn btn-outline-secondary" asp-action="Index">Limpar</a></div>
+ </form>
+</section>
+<section class="panel" style="padding:18px"><div class="table-responsive"><table class="table data-table"><thead><tr><th>Código</th><th>Falha</th><th>Equipamento</th><th>Data</th><th>Criticidade</th><th>Situação</th><th></th></tr></thead><tbody>
+@foreach (var f in Model) { <tr><td>@f.CodigoFalha</td><td>@f.TituloFalha</td><td>@f.IdEquipamentoNavigation.NomeEquipamento</td><td>@f.DataOcorrencia.ToString("dd/MM/yyyy HH:mm")</td><td>@f.Criticidade</td><td>@f.Situacao</td><td><a asp-action="Detalhes" asp-route-id="@f.IdFalha">Acompanhar</a></td></tr> }
+@if (!Model.Any()) { <tr><td colspan="7">Nenhuma ocorrência encontrada.</td></tr> }
+</tbody></table></div></section>

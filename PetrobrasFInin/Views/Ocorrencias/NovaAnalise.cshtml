@@ -1,0 +1,14 @@
+@model PetrobrasFInin.ViewModels.RegistroAnaliseVm
+@{ ViewData["Title"] = "Análise de causa"; var falha = ViewBag.Falha as PetrobrasFInin.Models.Falha; }
+<div class="page-heading"><div><div class="eyebrow">ETAPA 02</div><h1>Investigar causa da falha</h1><p>Ocorrência: @falha?.CodigoFalha — @falha?.TituloFalha</p></div></div>
+<section class="panel" style="padding:24px;max-width:950px"><form asp-action="NovaAnalise" method="post" class="row g-3">
+ @Html.AntiForgeryToken()<input asp-for="IdFalha" type="hidden" /><div asp-validation-summary="All" class="text-danger col-12"></div>
+ <div class="col-md-6"><label class="form-label">Código da análise</label><input asp-for="CodigoAnalise" class="form-control" /></div>
+ <div class="col-md-6"><label class="form-label">Gestor responsável por aprovar</label><select asp-for="IdGestor" asp-items="ViewBag.Gestores" class="form-select"><option value="0">Selecione</option></select></div>
+ <div class="col-md-6"><label class="form-label">Método de análise</label><select asp-for="MetodoAnalise" class="form-select"><option>5 Porquês</option><option>Diagrama de Ishikawa</option><option>FMEA</option><option>Árvore de falhas</option><option>Outro</option></select></div>
+ <div class="col-md-6"><label class="form-label">Disciplina</label><input asp-for="Disciplina" class="form-control" /></div>
+ <div class="col-12"><label class="form-label">Causa principal identificada</label><input asp-for="CausaPrincipal" class="form-control" /></div>
+ <div class="col-md-6"><label class="form-label">Categoria da causa</label><select asp-for="Categoria" class="form-select"><option>Equipamento</option><option>Processo</option><option>Humana</option><option>Ambiental</option><option>Outra</option></select></div>
+ <div class="col-md-6"><label class="form-label">Tipo de causa</label><input asp-for="TipoCausa" class="form-control" placeholder="Falha mecânica, desgaste, etc." /></div>
+ <div class="col-12"><button class="btn btn-primary">Registrar análise e causa raiz</button> <a asp-action="Detalhes" asp-route-id="@Model.IdFalha" class="btn btn-secondary">Cancelar</a></div>
+</form></section>

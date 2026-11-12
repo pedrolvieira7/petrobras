@@ -1,0 +1,48 @@
+@using System.Security.Claims
+@using PetrobrasFInin.Models
+@model Falha
+@{
+ ViewData["Title"] = "Acompanhamento da falha";
+ var anexos = ViewBag.Anexos as List<Anexo> ?? new();
+ var idAtual = int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var v) ? v : 0;
+ var tecnico = User.IsInRole("Analista") || User.IsInRole("Administrador");
+ var gestor = User.IsInRole("Gestor") || User.IsInRole("Administrador");
+}
+<div class="page-heading"><div><div class="eyebrow">RASTREABILIDADE E TRATAMENTO</div><h1>@Model.CodigoFalha · @Model.TituloFalha</h1><p>Equipamento: @Model.IdEquipamentoNavigation.NomeEquipamento · @Model.DataOcorrencia.ToString("dd/MM/yyyy HH:mm")</p></div><a asp-action="Index" class="btn btn-outline-secondary">Voltar à lista</a></div>
+@if (TempData["Erro"] != null) { <div class="alert alert-danger">@TempData["Erro"]</div> }
+@if (TempData["Sucesso"] != null) { <div class="alert alert-success">@TempData["Sucesso"]</div> }
+<section class="panel" style="padding:22px;margin-bottom:20px">
+ <div class="row g-3"><div class="col-md-3"><strong>Situação</strong><p>@Model.Situacao</p></div><div class="col-md-3"><strong>Criticidade</strong><p>@Model.Criticidade</p></div><div class="col-md-3"><strong>Modo de falha</strong><p>@Model.ModoFalha</p></div><div class="col-md-3"><strong>Parada</strong><p>@Model.HorasParada.ToString("N1") h</p></div></div>
+ <h3 style="font-size:16px">Descrição</h3><p>@Model.Descricao</p>
+ @if (tecnico && Model.Situacao != "Concluída") { <a asp-action="NovaAnalise" asp-route-idFalha="@Model.IdFalha" class="btn btn-primary">＋ Registrar investigação</a> }
+</section>
+@foreach (var a in Model.Analises.OrderByDescending(x => x.IdAnalise)) {
+ <section class="panel" style="padding:22px;margin-bottom:20px">
+  <div class="panel-heading"><div><h2>Análise @a.CodigoAnalise</h2><p>Método: @a.MetodoAnalise · Disciplina: @a.Disciplina</p></div><span class="pill pill-analysis">@a.DecisaoGestor</span></div>
+  <p><strong>Analista:</strong> @a.IdAnalistaNavigation.NomeCompleto · <strong>Gestor:</strong> @a.IdGestorNavigation.NomeCompleto</p>
+  <h3 style="font-size:16px">Causas identificadas</h3>
+  @foreach(var c in a.CausaRaizs) { <p>• @c.CausaPrincipal — @c.Categoria / @c.TipoCausa</p> }
+  @if (!string.IsNullOrWhiteSpace(a.ParecerGestor)) { <div class="alert alert-info"><strong>Parecer do gestor:</strong> @a.ParecerGestor</div> }
+  <h3 style="font-size:16px">Planos corretivos</h3>
+  <div class="table-responsive"><table class="table"><thead><tr><th>Código</th><th>Ação</th><th>Prazo</th><th>Situação</th><th>Atualizar</th></tr></thead><tbody>
+   @foreach (var acao in a.AcaoCorretivas) { <tr><td>@acao.CodigoAcao</td><td>@acao.DescricaoAcao</td><td>@acao.Prazo.ToString("dd/MM/yyyy")</td><td>@acao.Situacao</td><td>
+    @if (a.DecisaoGestor == "Aprovada" && (acao.IdResponsavel == idAtual || gestor)) {
+      <form asp-action="AtualizarAcao" method="post" class="d-flex gap-2">@Html.AntiForgeryToken()<input type="hidden" name="id" value="@acao.IdAcao" /><select class="form-select form-select-sm" name="situacao"><option value="Pendente">Pendente</option><option value="Em andamento">Em andamento</option><option value="Concluída">Concluída</option></select><button class="btn btn-sm btn-primary">Salvar</button></form>
+    }
+   </td></tr> }
+   @if (!a.AcaoCorretivas.Any()) { <tr><td colspan="5">Nenhuma ação registrada.</td></tr> }
+  </tbody></table></div>
+  @if (tecnico && a.DecisaoGestor != "Aprovada" && (a.IdAnalista == idAtual || User.IsInRole("Administrador"))) { <a asp-action="NovaAcao" asp-route-idAnalise="@a.IdAnalise" class="btn btn-primary">＋ Propor ação</a> }
+  @if (tecnico && a.DecisaoGestor == "Devolvida" && (a.IdAnalista == idAtual || User.IsInRole("Administrador"))) {
+   <form asp-action="Revisar" method="post" class="mt-3 row g-2"><input type="hidden" name="idAnalise" value="@a.IdAnalise" />@Html.AntiForgeryToken()<div class="col-md-5"><label class="form-label">Causa revisada</label><input name="causaPrincipal" required maxlength="100" value="@(a.CausaRaizs.FirstOrDefault()?.CausaPrincipal)" class="form-control" /></div><div class="col-md-4"><label class="form-label">Tipo de causa</label><input name="tipoCausa" required maxlength="80" value="@(a.CausaRaizs.FirstOrDefault()?.TipoCausa)" class="form-control" /></div><div class="col-md-3" style="align-self:end"><button class="btn btn-warning">Reenviar para análise</button></div></form>
+  }
+  @if (gestor && a.DecisaoGestor != "Aprovada" && (a.IdGestor == idAtual || User.IsInRole("Administrador"))) {
+   <form asp-action="Avaliar" method="post" class="row g-2 mt-3"><input type="hidden" name="idAnalise" value="@a.IdAnalise" />@Html.AntiForgeryToken()<div class="col-md-8"><label class="form-label">Parecer (obrigatório em devoluções)</label><input name="parecer" maxlength="2000" class="form-control" /></div><div class="col-md-4" style="align-self:end"><button name="decisao" value="Aprovada" class="btn btn-success">Aprovar</button> <button name="decisao" value="Devolvida" class="btn btn-outline-danger">Devolver</button></div></form>
+  }
+ </section>
+}
+<section class="panel" style="padding:22px;margin-bottom:20px">
+ <div class="panel-heading"><div><h2>Documentos e evidências</h2><p>Arquivos PDF, JPG ou PNG, armazenados no banco e acessíveis somente após login.</p></div></div>
+ <form method="post" enctype="multipart/form-data" asp-controller="Arquivos" asp-action="Enviar" class="row g-2">@Html.AntiForgeryToken()<input type="hidden" name="idFalha" value="@Model.IdFalha" /><div class="col-md-7"><input name="arquivo" class="form-control" type="file" accept=".pdf,.jpg,.jpeg,.png" required /></div><div class="col-md-5"><button class="btn btn-primary">Anexar evidência (até 5 MB)</button></div></form>
+ <ul class="mt-3">@foreach (var anexo in anexos) { <li><a asp-controller="Arquivos" asp-action="Baixar" asp-route-id="@anexo.IdAnexo">@anexo.NomeArquivo</a></li> } @if (!anexos.Any()) { <li>Sem anexos.</li> }</ul>
+</section>

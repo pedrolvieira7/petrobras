@@ -35,6 +35,9 @@ public partial class Analise
     [Unicode(false)]
     public string DecisaoGestor { get; set; } = null!;
 
+    [Column("parecer_gestor")]
+    public string? ParecerGestor { get; set; }
+
     [Column("id_falha")]
     public int IdFalha { get; set; }
 
