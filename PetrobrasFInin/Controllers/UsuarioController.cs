@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using PetrobrasFInin.Models;
 
 namespace PetrobrasFInin.Controllers;
 
+[Authorize(Roles = "Administrador")]
 public class UsuarioController : Controller
 {
     private readonly PetrobrasContext _context;
@@ -83,20 +85,8 @@ public class UsuarioController : Controller
         {
             // Registra o erro completo no console/Output do Visual Studio para facilitar o diagnóstico.
             Console.Error.WriteLine($"Erro ao salvar usuário: {ex}");
-            var detalhe = ex.InnerException?.Message;
-            var mensagem = "Não foi possível salvar o usuário no banco de dados. ";
-
-            if (!string.IsNullOrWhiteSpace(detalhe))
-            {
-                // Mensagem útil para ambiente local de desenvolvimento.
-                mensagem += $"Detalhe do SQL Server: {detalhe}";
-            }
-            else
-            {
-                mensagem += "Confira a conexão, se o perfil existe e se a coluna dbo.usuario.senha aceita VARCHAR(255).";
-            }
-
-            ModelState.AddModelError(string.Empty, mensagem);
+            ModelState.AddModelError(string.Empty,
+                "Não foi possível salvar o usuário. Confira os campos e tente novamente.");
             await CarregarListas();
             return View(item);
         }
@@ -113,16 +103,39 @@ public class UsuarioController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,NomeCompleto,Cpf,Email,Senha,IdPerfil")] Usuario item)
+    public async Task<IActionResult> Edit(int id, string nomeCompleto, string cpf, string email,
+        int idPerfil, string? novaSenha)
     {
-        if (id != item.IdUsuario) return NotFound();
+        var existente = await _context.Usuarios.FindAsync(id);
+        if (existente == null) return NotFound();
+
+        if (string.IsNullOrWhiteSpace(nomeCompleto) || string.IsNullOrWhiteSpace(email) ||
+            string.IsNullOrWhiteSpace(cpf) || !await _context.Perfils.AnyAsync(p => p.IdPerfil == idPerfil))
+            ModelState.AddModelError(string.Empty, "Preencha os campos e escolha um perfil válido.");
+        if (!string.IsNullOrWhiteSpace(novaSenha) && novaSenha.Length < 8)
+            ModelState.AddModelError(string.Empty, "A nova senha deve ter pelo menos 8 caracteres.");
+        if (await _context.Usuarios.AnyAsync(u => u.IdUsuario != id && (u.Email == (email ?? string.Empty).Trim() || u.Cpf == (cpf ?? string.Empty).Trim())))
+            ModelState.AddModelError(string.Empty, "Já existe um usuário com esse e-mail ou CPF.");
+
+        // Não permitir a remoção do último administrador.
+        var admin = await _context.Perfils.FirstOrDefaultAsync(p => p.Nome == "Administrador");
+        if (admin != null && existente.IdPerfil == admin.IdPerfil && idPerfil != admin.IdPerfil &&
+            !await _context.Usuarios.AnyAsync(u => u.IdUsuario != id && u.IdPerfil == admin.IdPerfil))
+            ModelState.AddModelError(string.Empty, "Não é possível remover o último administrador.");
+
         if (!ModelState.IsValid)
         {
             await CarregarListas();
-            return View(item);
+            return View(existente);
         }
 
-        _context.Update(item);
+        existente.NomeCompleto = nomeCompleto.Trim();
+        existente.Cpf = cpf.Trim();
+        existente.Email = email.Trim();
+        existente.IdPerfil = idPerfil;
+        if (!string.IsNullOrWhiteSpace(novaSenha))
+            existente.Senha = _passwordHasher.HashPassword(existente, novaSenha);
+
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
@@ -142,6 +155,13 @@ public class UsuarioController : Controller
         var item = await _context.Set<Usuario>().FindAsync(id);
         if (item != null)
         {
+            var admin = await _context.Perfils.FirstOrDefaultAsync(p => p.Nome == "Administrador");
+            if (admin != null && item.IdPerfil == admin.IdPerfil &&
+                !await _context.Usuarios.AnyAsync(u => u.IdUsuario != id && u.IdPerfil == admin.IdPerfil))
+            {
+                TempData["Erro"] = "Não é possível excluir o último administrador.";
+                return RedirectToAction(nameof(Index));
+            }
             _context.Remove(item);
             await _context.SaveChangesAsync();
         }

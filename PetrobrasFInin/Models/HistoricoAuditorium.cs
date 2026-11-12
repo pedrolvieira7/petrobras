@@ -24,7 +24,7 @@ public partial class HistoricoAuditorium
     [Unicode(false)]
     public string RegistroAfetado { get; set; } = null!;
 
-    [Column("data_hora", TypeName = "datetime")]
+    [Column("data_hora", TypeName = "timestamp without time zone")]
     public DateTime DataHora { get; set; }
 
     [Column("id_usuario")]

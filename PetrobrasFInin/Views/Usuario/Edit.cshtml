@@ -24,9 +24,8 @@
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Senha" class="form-label">Senha</label>
-        <input asp-for="Senha" type="password" class="form-control" autocomplete="new-password" />
-        <span asp-validation-for="Senha" class="text-danger"></span>
+        <label for="novaSenha" class="form-label">Nova senha (deixe em branco para manter)</label>
+        <input id="novaSenha" name="novaSenha" type="password" class="form-control" autocomplete="new-password" minlength="8" />
     </div>
     <div class="mb-3">
         <label asp-for="IdPerfil" class="form-label">Perfil</label>

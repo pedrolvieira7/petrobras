@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PetrobrasFInin.Data;
@@ -6,6 +7,7 @@ using PetrobrasFInin.Models;
 
 namespace PetrobrasFInin.Controllers;
 
+[Authorize(Roles = "Administrador")]
 public class PerfilController : Controller
 {
     private readonly PetrobrasContext _context;

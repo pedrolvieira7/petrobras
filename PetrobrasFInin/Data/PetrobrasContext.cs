@@ -38,6 +38,16 @@ public partial class PetrobrasContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // O Supabase não expõe o esquema siaf por padrão na API pública.
+        modelBuilder.HasDefaultSchema("siaf");
+
+        // Dados de formulários HTML não possuem fuso horário.
+        modelBuilder.Entity<Falha>().Property(e => e.DataOcorrencia).HasColumnType("timestamp without time zone");
+        modelBuilder.Entity<AcaoCorretiva>().Property(e => e.Prazo).HasColumnType("timestamp without time zone");
+        modelBuilder.Entity<HistoricoAuditorium>().Property(e => e.DataHora).HasColumnType("timestamp without time zone");
+
+        modelBuilder.Entity<Usuario>().HasIndex(e => e.Email).IsUnique();
+        modelBuilder.Entity<Usuario>().HasIndex(e => e.Cpf).IsUnique();
         modelBuilder.Entity<AcaoCorretiva>(entity =>
         {
             entity.HasKey(e => e.IdAcao).HasName("PK__acao_cor__B474D3979C70F383");
